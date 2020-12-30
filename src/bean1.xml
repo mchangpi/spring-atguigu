@@ -8,6 +8,10 @@
     <bean id="book" class="com.miltonlearn.Book">
         <property name="bname" value="TestBook"></property>
         <property name="bauthor" value="TestAuthor"></property>
+        <!--property name="price"><null></null></property-->
+        <property name="price">
+            <value><![CDATA[<<壹仟元>>]]></value>
+        </property>
     </bean>
     <bean id="order" class="com.miltonlearn.Order">
         <!-- <constructor-arg name="oname" value="OrderName"></constructor-arg>
