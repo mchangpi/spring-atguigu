@@ -4,7 +4,9 @@ import com.miltonlearn.Book;
 import com.miltonlearn.Order;
 import com.miltonlearn.User;
 import com.miltonlearn.bean.Employee;
+import com.miltonlearn.collection.Course;
 import com.miltonlearn.collection.Student;
+import com.miltonlearn.factory.MyBean;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
@@ -81,5 +83,15 @@ public class TestSpring {
     student.printCourses();
     Book book = context.getBean("book", Book.class);
     book.printInfo();
+  }
+
+  @Test
+  public void testFactoryBean() {
+    BeanFactory context =
+        //new ClassPathXmlApplicationContext("bean3.xml");
+        new ClassPathXmlApplicationContext("beanFactory.xml");
+
+    Course c = context.getBean("mybean", Course.class);
+    System.out.println(c);
   }
 }
