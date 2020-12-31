@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.miltonlearn.collection.Student">
+        <property name="courseArray">
+            <array>
+                <value>Java</value>
+                <value>Python</value>
+            </array>
+        </property>
+        <property name="courseList">
+            <list>
+                <value>Java</value>
+                <value>Python</value>
+            </list>
+        </property>
+        <property name="courseMap">
+            <map>
+                <entry key="Java" value="3hr"></entry>
+                <entry key="Python" value="6hr"></entry>
+            </map>
+        </property>
+        <property name="courseSet">
+            <set>
+                <value>Java</value>
+                <value>Python</value>
+            </set>
+        </property>
+    </bean>
+
+</beans>
