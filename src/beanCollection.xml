@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="bookList">
+        <value>EffectiveJava</value>
+        <value>HeadFirstJava</value>
+        <value>SpringBoot</value>
+        <value>SpringCloud</value>
+    </util:list>
 
     <bean id="student" class="com.miltonlearn.collection.Student">
         <property name="courseArray">
@@ -29,6 +38,23 @@
                 <value>Python</value>
             </set>
         </property>
+        <property name="courseObjList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
     </bean>
 
+    <bean name="course1" class="com.miltonlearn.collection.Course">
+        <property name="name" value="spring cloud"></property>
+    </bean>
+
+    <bean name="course2" class="com.miltonlearn.collection.Course">
+        <property name="name" value="spring boot"></property>
+    </bean>
+
+    <bean id="book" class="com.miltonlearn.Book">
+        <property name="list" ref="bookList"></property>
+    </bean>
 </beans>

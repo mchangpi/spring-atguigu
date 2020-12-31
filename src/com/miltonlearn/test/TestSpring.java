@@ -79,5 +79,7 @@ public class TestSpring {
 
     Student student = context.getBean("student", Student.class);
     student.printCourses();
+    Book book = context.getBean("book", Book.class);
+    book.printInfo();
   }
 }
