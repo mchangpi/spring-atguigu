@@ -3,6 +3,7 @@ package com.miltonlearn.test;
 import com.miltonlearn.Book;
 import com.miltonlearn.Order;
 import com.miltonlearn.User;
+import com.miltonlearn.bean.Employee;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
@@ -10,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
   @Test
-  public void testUserAdd(){
+  public void testUserAdd() {
     //ApplicationContext context =
     BeanFactory context =
         new ClassPathXmlApplicationContext("bean1.xml");
@@ -20,8 +21,9 @@ public class TestSpring {
     System.out.println(user.toString());
     user.add();
   }
+
   @Test
-  public void testBook(){
+  public void testBook() {
     //ApplicationContext context =
     BeanFactory context =
         new ClassPathXmlApplicationContext("bean1.xml");
@@ -31,8 +33,9 @@ public class TestSpring {
     System.out.println(book.toString());
     book.printInfo();
   }
+
   @Test
-  public void testOrder(){
+  public void testOrder() {
     //ApplicationContext context =
     BeanFactory context =
         new ClassPathXmlApplicationContext("bean1.xml");
@@ -42,8 +45,9 @@ public class TestSpring {
     System.out.println(order.toString());
     order.printOrder();
   }
+
   @Test
-  public void testExternalBean(){
+  public void testExternalBean() {
     //ApplicationContext context =
     BeanFactory context =
         new ClassPathXmlApplicationContext("bean2.xml");
@@ -52,5 +56,17 @@ public class TestSpring {
     UserService us = context.getBean("userService", UserService.class);
     System.out.println(us.toString());
     us.add();
+  }
+
+  @Test
+  public void testInnerBean() {
+    //ApplicationContext context =
+    BeanFactory context =
+        //new ClassPathXmlApplicationContext("bean3.xml");
+        new ClassPathXmlApplicationContext("bean4.xml");
+
+    Employee emp = context.getBean("emp", Employee.class);
+    System.out.println(emp.toString());
+    emp.printInfo();
   }
 }
