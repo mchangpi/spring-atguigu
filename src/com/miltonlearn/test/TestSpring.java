@@ -81,8 +81,11 @@ public class TestSpring {
 
     Student student = context.getBean("student", Student.class);
     student.printCourses();
-    Book book = context.getBean("book", Book.class);
-    book.printInfo();
+    Book book1 = context.getBean("book", Book.class);
+    Book book2 = context.getBean("book", Book.class);
+    System.out.println("book1 " + book1);
+    System.out.println("book2 " + book2);
+    book1.printInfo();
   }
 
   @Test

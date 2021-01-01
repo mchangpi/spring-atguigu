@@ -54,7 +54,8 @@
         <property name="name" value="spring boot"></property>
     </bean>
 
-    <bean id="book" class="com.miltonlearn.Book">
+    <!--bean id="book" class="com.miltonlearn.Book" scope="singleton"-->
+    <bean id="book" class="com.miltonlearn.Book" scope="prototype">
         <property name="list" ref="bookList"></property>
     </bean>
 </beans>
