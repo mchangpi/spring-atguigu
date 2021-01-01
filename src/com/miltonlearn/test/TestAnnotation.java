@@ -1,8 +1,10 @@
 package com.miltonlearn.test;
 
+import com.miltonlearn.config.AnnotationConfig;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAnnotation {
@@ -10,6 +12,17 @@ public class TestAnnotation {
   public void testUserService() {
     ApplicationContext context =
         new ClassPathXmlApplicationContext("beanAnnotation.xml");
+    System.out.println(context.toString());
+
+    UserService us = context.getBean("userService", UserService.class);
+    System.out.println(us.toString());
+    us.add();
+  }
+
+  @Test
+  public void testConfig() {
+    ApplicationContext context =
+        new AnnotationConfigApplicationContext(AnnotationConfig.class);
     System.out.println(context.toString());
 
     UserService us = context.getBean("userService", UserService.class);
