@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--bean id="emp" class="com.miltonlearn.bean.Employee" autowire="byType"></bean-->
+    <!-- byName means matching bean id -->
     <bean id="emp" class="com.miltonlearn.bean.Employee" autowire="byName"></bean>
     <bean id="dept" class="com.miltonlearn.bean.Dept">
         <property name="name" value="development"></property>
