@@ -10,6 +10,7 @@ import com.miltonlearn.factory.MyBean;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
@@ -96,5 +97,15 @@ public class TestSpring {
 
     Course c = context.getBean("mybean", Course.class);
     System.out.println(c);
+  }
+
+  @Test
+  public void testBeanLifeCycle() {
+    ClassPathXmlApplicationContext context =
+        new ClassPathXmlApplicationContext("beanLifeCycle.xml");
+
+    Order order = context.getBean("order", Order.class);
+    System.out.println(order + " 4. Get bean instance ");
+    context.close();
   }
 }
