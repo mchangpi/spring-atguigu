@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 //@Component(value = "userService")
 //@Service(value = "userService")
-//@Controller(value = "userService")
-@Repository(value = "userService")
+//@Repository(value = "userService")
+@Controller(value = "userService")
 public class UserService {
   private UserCall userCall;
 
