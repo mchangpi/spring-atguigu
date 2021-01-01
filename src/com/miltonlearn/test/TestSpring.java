@@ -108,4 +108,13 @@ public class TestSpring {
     System.out.println(order + " 4. Get bean instance ");
     context.close();
   }
+
+  @Test
+  public void testAutoWire() {
+    ApplicationContext context =
+        new ClassPathXmlApplicationContext("beanAutoWire.xml");
+
+    Employee emp = context.getBean("emp", Employee.class);
+    emp.printInfo();
+  }
 }
