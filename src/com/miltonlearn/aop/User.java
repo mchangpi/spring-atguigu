@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class User {
   public void add() {
     System.out.println("User Add....");
-    int i = 1 / 0;
+    //int i = 1 / 0;
   }
 }
