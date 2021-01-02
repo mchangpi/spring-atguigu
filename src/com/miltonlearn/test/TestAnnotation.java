@@ -1,6 +1,5 @@
 package com.miltonlearn.test;
 
-import com.miltonlearn.aop.User;
 import com.miltonlearn.config.AnnotationConfig;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
@@ -31,12 +30,5 @@ public class TestAnnotation {
     us.add();
   }
 
-  @Test
-  public void testAOP() {
-    ApplicationContext context =
-        new ClassPathXmlApplicationContext("beanAspectJ.xml");
-    System.out.println(context.toString());
-    User user = context.getBean("user", User.class);
-    user.add();
-  }
+
 }
