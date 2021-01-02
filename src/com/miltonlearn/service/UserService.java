@@ -32,6 +32,6 @@ public class UserService {
   public void add() {
     System.out.println("Service add name " + name);
     if (null != userCall)
-      userCall.update();
+      userCall.update("123");
   }
 }

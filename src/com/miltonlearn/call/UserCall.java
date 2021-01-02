@@ -5,8 +5,14 @@ import org.springframework.stereotype.Repository;
 @Repository(value = "userCallObj")
 public class UserCall implements IUserCall {
   @Override
-  public void update() {
-    System.out.println("User Call update...");
+  public int add(int a, int b) {
+    return a + b;
+  }
+
+  @Override
+  public String update(String id) {
+    System.out.println("User Call update... " + id);
+    return id;
   }
 }
 
