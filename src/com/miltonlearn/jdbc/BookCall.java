@@ -2,10 +2,12 @@ package com.miltonlearn.jdbc;
 
 import com.miltonlearn.jdbc.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Repository
 public class BookCall implements IBookCall {
@@ -39,5 +41,19 @@ public class BookCall implements IBookCall {
   public int count() {
     String sql = "select count(*) from book";
     return jdbcTemplate.queryForObject(sql, Integer.class);
+  }
+
+  @Override
+  public Book find(int id) {
+    String sql = "select * from book where id=?";
+    Book book = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Book>(Book.class), id);
+    return book;
+  }
+
+  @Override
+  public List<Book> all() {
+    String sql = "select * from book";
+    List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
+    return bookList;
   }
 }

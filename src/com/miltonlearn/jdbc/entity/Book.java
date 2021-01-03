@@ -5,6 +5,12 @@ public class Book {
   private String name;
   private String status;
 
+  public Book() {
+    this.id = 0;
+    this.name = "";
+    this.status = "";
+  }
+
   public Book(int id, String name, String status) {
     this.id = id;
     this.name = name;
@@ -33,6 +39,11 @@ public class Book {
 
   public String getStatus() {
     return status;
+  }
+
+  @Override
+  public String toString() {
+    return id + ":" + name + ":" + status;
   }
 }
 
