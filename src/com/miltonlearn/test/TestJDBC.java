@@ -5,6 +5,9 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestJDBC {
   @Test
   public void testCRUD() {
@@ -21,5 +24,13 @@ public class TestJDBC {
     System.out.println("Select count " + bookService.selectCount());
     System.out.println(bookService.findBook(1));
     System.out.println(bookService.findAll());
+    List<Object[]> batchArgs = new ArrayList<>();
+    Object[] o1 = {"5", "Spring", "3books"};
+    Object[] o2 = {"6", "SpringBoot", "5books"};
+    Object[] o3 = {"7", "SpringCloud", "6books"};
+    batchArgs.add(o1);
+    batchArgs.add(o2);
+    batchArgs.add(o3);
+    bookService.batchAdd(batchArgs);
   }
 }

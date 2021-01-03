@@ -34,4 +34,8 @@ public class BookService {
   public List<Book> findAll() {
     return bookCall.all();
   }
+
+  public void batchAdd(List<Object[]> batchArgs) {
+    bookCall.batch(batchArgs);
+  }
 }

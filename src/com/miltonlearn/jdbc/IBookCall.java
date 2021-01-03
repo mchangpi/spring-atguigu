@@ -16,4 +16,6 @@ public interface IBookCall {
   public Book find(int id);
 
   public List<Book> all();
+
+  public void batch(List<Object[]> args);
 }

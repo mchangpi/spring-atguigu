@@ -56,4 +56,12 @@ public class BookCall implements IBookCall {
     List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
     return bookList;
   }
+
+  @Override
+  public void batch(List<Object[]> args) {
+    String sql = "insert into book values(?,?,?)";
+    int[] ints = jdbcTemplate.batchUpdate(sql, args);
+    System.out.println(Arrays.toString(ints));
+  }
+
 }
