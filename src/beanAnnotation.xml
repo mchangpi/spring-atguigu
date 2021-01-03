@@ -6,6 +6,9 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--@Component @Repository @Controller @Service-->
+    <!-- @Autowire: by type ; @Qualifier: setting by object name -->
+    <!-- @Value: setting for primitive types -->
     <context:component-scan base-package="com.miltonlearn" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>

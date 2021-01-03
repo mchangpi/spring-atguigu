@@ -16,8 +16,22 @@ public class BookCall implements IBookCall {
   public void add(Book book) {
     String sql = "insert into book values(?,?,?)";
     Object[] args = {book.getId(), book.getName(), book.getStatus()};
-    System.out.println("Book " + Arrays.toString(args));
     int update = jdbcTemplate.update(sql, args);
-    System.out.println(update);
+    System.out.println("Book " + Arrays.toString(args) + " affected row " + update);
+  }
+
+  @Override
+  public void update(Book book) {
+    String sql = "update book set name=?, status=? where id=?";
+    Object[] args = {book.getName(), book.getStatus(), book.getId()};
+    int update = jdbcTemplate.update(sql, args);
+    System.out.println("Update Book " + Arrays.toString(args) + " affected row " + update);
+  }
+
+  @Override
+  public void delete(int id) {
+    String sql = "delete from book where id=?";
+    int update = jdbcTemplate.update(sql, id);
+    System.out.println("Delete Book " + " affected row " + update);
   }
 }

@@ -13,7 +13,10 @@ public class TestJDBC {
         new ClassPathXmlApplicationContext("beanAnnoJDBCTemplate.xml");
 
     BookService bookService = context.getBean("bookService", BookService.class);
-    Book book = new Book(1, "Java", "Sold out");
+    Book book = new Book(2, "Java 6", "10 books");
     bookService.addBook(book);
+    book = new Book(1, "Java 3", "10 books");
+    bookService.updateBook(book);
+    bookService.deleteBook(1);
   }
 }

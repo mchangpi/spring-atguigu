@@ -12,4 +12,12 @@ public class BookService {
   public void addBook(Book book) {
     bookCall.add(book);
   }
+
+  public void updateBook(Book book) {
+    bookCall.update(book);
+  }
+
+  public void deleteBook(int id) {
+    bookCall.delete(id);
+  }
 }
