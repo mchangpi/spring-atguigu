@@ -25,12 +25,24 @@ public class TestJDBC {
     System.out.println(bookService.findBook(1));
     System.out.println(bookService.findAll());
     List<Object[]> batchArgs = new ArrayList<>();
+    /*
     Object[] o1 = {"5", "Spring", "3books"};
     Object[] o2 = {"6", "SpringBoot", "5books"};
-    Object[] o3 = {"7", "SpringCloud", "6books"};
+    Object[] o3 = {"7", "SpringCloud", "6books"};*/
+    /*
+    Object[] o1 = {"Spring", "0books", 5};
+    Object[] o2 = {"SpringBoot", "0books", 6};
+    Object[] o3 = {"SpringCloud", "0books", 7};*/
+
+    Object[] o1 = {5};
+    Object[] o2 = {6};
+    Object[] o3 = {7};
     batchArgs.add(o1);
     batchArgs.add(o2);
     batchArgs.add(o3);
-    bookService.batchAdd(batchArgs);
+
+    //bookService.batchAddBooks(batchArgs);
+    //bookService.batchUpdateBooks(batchArgs);
+    bookService.batchDeleteBooks(batchArgs);
   }
 }

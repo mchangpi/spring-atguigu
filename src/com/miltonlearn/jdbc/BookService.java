@@ -35,7 +35,15 @@ public class BookService {
     return bookCall.all();
   }
 
-  public void batchAdd(List<Object[]> batchArgs) {
-    bookCall.batch(batchArgs);
+  public void batchAddBooks(List<Object[]> batchArgs) {
+    bookCall.batchAdd(batchArgs);
+  }
+
+  public void batchUpdateBooks(List<Object[]> batchArgs) {
+    bookCall.batchUpdate(batchArgs);
+  }
+
+  public void batchDeleteBooks(List<Object[]> batchArgs) {
+    bookCall.batchDelete(batchArgs);
   }
 }

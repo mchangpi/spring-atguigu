@@ -1,6 +1,7 @@
 package com.miltonlearn.jdbc;
 
 import com.miltonlearn.jdbc.entity.Book;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -58,10 +59,23 @@ public class BookCall implements IBookCall {
   }
 
   @Override
-  public void batch(List<Object[]> args) {
+  public void batchAdd(List<Object[]> args) {
     String sql = "insert into book values(?,?,?)";
     int[] ints = jdbcTemplate.batchUpdate(sql, args);
-    System.out.println(Arrays.toString(ints));
+    System.out.println("Batch Add: " + Arrays.toString(ints));
   }
 
+  @Override
+  public void batchUpdate(List<Object[]> args) {
+    String sql = "update book set name=?, status=? where id=?";
+    int[] ints = jdbcTemplate.batchUpdate(sql, args);
+    System.out.println("Batch Update: " + Arrays.toString(ints));
+  }
+
+  @Override
+  public void batchDelete(List<Object[]> args) {
+    String sql = "delete from book where id=?";
+    int[] ints = jdbcTemplate.batchUpdate(sql, args);
+    System.out.println("Batch Delete: " + Arrays.toString(ints));
+  }
 }

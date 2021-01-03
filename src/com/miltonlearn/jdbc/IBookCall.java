@@ -17,5 +17,9 @@ public interface IBookCall {
 
   public List<Book> all();
 
-  public void batch(List<Object[]> args);
+  public void batchAdd(List<Object[]> args);
+
+  public void batchUpdate(List<Object[]> args);
+
+  public void batchDelete(List<Object[]> args);
 }
