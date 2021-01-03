@@ -8,4 +8,6 @@ public interface IBookCall {
   public void update(Book book);
 
   public void delete(int id);
+
+  public int count();
 }

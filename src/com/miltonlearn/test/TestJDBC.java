@@ -18,5 +18,7 @@ public class TestJDBC {
     book = new Book(1, "Java 3", "10 books");
     bookService.updateBook(book);
     bookService.deleteBook(1);
+
+    System.out.println("Select count " + bookService.selectCount());
   }
 }

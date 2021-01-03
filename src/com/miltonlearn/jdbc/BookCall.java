@@ -34,4 +34,10 @@ public class BookCall implements IBookCall {
     int update = jdbcTemplate.update(sql, id);
     System.out.println("Delete Book " + " affected row " + update);
   }
+
+  @Override
+  public int count() {
+    String sql = "select count(*) from book";
+    return jdbcTemplate.queryForObject(sql, Integer.class);
+  }
 }

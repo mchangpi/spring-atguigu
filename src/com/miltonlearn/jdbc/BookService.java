@@ -20,4 +20,8 @@ public class BookService {
   public void deleteBook(int id) {
     bookCall.delete(id);
   }
+
+  public int selectCount() {
+    return bookCall.count();
+  }
 }
