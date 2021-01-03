@@ -54,6 +54,7 @@
         <property name="name" value="spring boot"></property>
     </bean>
 
+    <!-- scope prototype means bean container contains multiple instances -->
     <!--bean id="book" class="com.miltonlearn.Book" scope="singleton"-->
     <bean id="book" class="com.miltonlearn.Book" scope="prototype">
         <property name="list" ref="bookList"></property>

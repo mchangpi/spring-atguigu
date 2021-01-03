@@ -6,7 +6,6 @@ import com.miltonlearn.User;
 import com.miltonlearn.bean.Employee;
 import com.miltonlearn.collection.Course;
 import com.miltonlearn.collection.Student;
-import com.miltonlearn.factory.MyBean;
 import com.miltonlearn.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
@@ -18,7 +17,7 @@ public class TestSpring {
   public void testUserAdd() {
     //ApplicationContext context =
     BeanFactory context =
-        new ClassPathXmlApplicationContext("bean1.xml");
+        new ClassPathXmlApplicationContext("beanXML.xml");
     System.out.println(context.toString());
 
     User user = context.getBean("userId", User.class);
@@ -30,7 +29,7 @@ public class TestSpring {
   public void testBook() {
     //ApplicationContext context =
     BeanFactory context =
-        new ClassPathXmlApplicationContext("bean1.xml");
+        new ClassPathXmlApplicationContext("beanXML.xml");
     System.out.println(context.toString());
 
     Book book = context.getBean("book", Book.class);
@@ -42,7 +41,7 @@ public class TestSpring {
   public void testOrder() {
     //ApplicationContext context =
     BeanFactory context =
-        new ClassPathXmlApplicationContext("bean1.xml");
+        new ClassPathXmlApplicationContext("beanXML.xml");
     //System.out.println(context.toString());
 
     Order order = context.getBean("order", Order.class);
@@ -54,7 +53,7 @@ public class TestSpring {
   public void testExternalBean() {
     //ApplicationContext context =
     BeanFactory context =
-        new ClassPathXmlApplicationContext("bean2.xml");
+        new ClassPathXmlApplicationContext("beanXMLref.xml");
     //System.out.println(context.toString());
 
     UserService us = context.getBean("userService", UserService.class);
@@ -66,8 +65,8 @@ public class TestSpring {
   public void testInnerBean() {
     //ApplicationContext context =
     BeanFactory context =
-        //new ClassPathXmlApplicationContext("bean3.xml");
-        new ClassPathXmlApplicationContext("bean4.xml");
+        //new ClassPathXmlApplicationContext("beanXMLInner.xml");
+        new ClassPathXmlApplicationContext("beanXMLRef_2.xml");
 
     Employee emp = context.getBean("emp", Employee.class);
     System.out.println(emp.toString());
@@ -77,8 +76,8 @@ public class TestSpring {
   @Test
   public void testCollection() {
     BeanFactory context =
-        //new ClassPathXmlApplicationContext("bean3.xml");
-        new ClassPathXmlApplicationContext("beanCollection.xml");
+        //new ClassPathXmlApplicationContext("beanXMLInner.xml");
+        new ClassPathXmlApplicationContext("beanXMLCollection.xml");
 
     Student student = context.getBean("student", Student.class);
     student.printCourses();
@@ -92,8 +91,8 @@ public class TestSpring {
   @Test
   public void testFactoryBean() {
     BeanFactory context =
-        //new ClassPathXmlApplicationContext("bean3.xml");
-        new ClassPathXmlApplicationContext("beanFactory.xml");
+        //new ClassPathXmlApplicationContext("beanXMLInner.xml");
+        new ClassPathXmlApplicationContext("beanXMLFactoryBean.xml");
 
     Course c = context.getBean("mybean", Course.class);
     System.out.println(c);
@@ -102,7 +101,7 @@ public class TestSpring {
   @Test
   public void testBeanLifeCycle() {
     ClassPathXmlApplicationContext context =
-        new ClassPathXmlApplicationContext("beanLifeCycle.xml");
+        new ClassPathXmlApplicationContext("beanXMLLifeCycle.xml");
 
     Order order = context.getBean("order", Order.class);
     System.out.println(order + " 4. Get bean instance ");
@@ -112,7 +111,7 @@ public class TestSpring {
   @Test
   public void testAutoWire() {
     ApplicationContext context =
-        new ClassPathXmlApplicationContext("beanAutoWire.xml");
+        new ClassPathXmlApplicationContext("beanXMLAutoWire.xml");
 
     Employee emp = context.getBean("emp", Employee.class);
     emp.printInfo();

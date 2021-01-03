@@ -12,7 +12,7 @@ public class TestAspectJ {
   @Test
   public void testAOPAnnotation() {
     ApplicationContext context =
-        new ClassPathXmlApplicationContext("beanAspectJ.xml");
+        new ClassPathXmlApplicationContext("beanAnnoAspectJ.xml");
     System.out.println(context.toString());
     User user = context.getBean("user", User.class);
     user.add();
@@ -21,7 +21,7 @@ public class TestAspectJ {
   @Test
   public void testAOPXML() {
     ApplicationContext context =
-        new ClassPathXmlApplicationContext("beanAspectJ2.xml");
+        new ClassPathXmlApplicationContext("beanXMLAspectJ.xml");
     System.out.println(context.toString());
     Book book = context.getBean("book", Book.class);
     book.buy();

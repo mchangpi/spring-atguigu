@@ -6,5 +6,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!-- Display usage of FactoryBean -->
     <bean id="mybean" class="com.miltonlearn.factory.MyBean"></bean>
 </beans>

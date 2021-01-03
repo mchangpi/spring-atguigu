@@ -29,6 +29,4 @@ public class TestAnnotation {
     System.out.println(us.toString());
     us.add();
   }
-
-
 }
