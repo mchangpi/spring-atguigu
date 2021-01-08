@@ -1,6 +1,7 @@
 package com.miltonlearn.test;
 
 import com.miltonlearn.jdbc.BookService;
+import com.miltonlearn.transaction.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -44,5 +45,13 @@ public class TestJDBC {
     //bookService.batchAddBooks(batchArgs);
     //bookService.batchUpdateBooks(batchArgs);
     bookService.batchDeleteBooks(batchArgs);
+  }
+
+  @Test
+  public void testTransacion() {
+    ApplicationContext context =
+        new ClassPathXmlApplicationContext("beanAnnoTransaction.xml");
+    UserService service = context.getBean("userService", UserService.class);
+    service.accountMoney();
   }
 }
