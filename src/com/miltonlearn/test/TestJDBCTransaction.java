@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestJDBC {
+public class TestJDBCTransaction {
   @Test
   public void testCRUD() {
     ApplicationContext context =
@@ -49,6 +49,7 @@ public class TestJDBC {
 
   @Test
   public void testTransacion() {
+    //PlatformTransactionManager;
     ApplicationContext context =
         new ClassPathXmlApplicationContext("beanAnnoTransaction.xml");
     UserService service = context.getBean("userService", UserService.class);
