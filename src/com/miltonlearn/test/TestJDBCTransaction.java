@@ -2,8 +2,10 @@ package com.miltonlearn.test;
 
 import com.miltonlearn.jdbc.BookService;
 import com.miltonlearn.transaction.UserService;
+import com.miltonlearn.transaction.config.TxConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -58,9 +60,16 @@ public class TestJDBCTransaction {
 
   @Test
   public void testXMLTransacion() {
-    //PlatformTransactionManager;
     ApplicationContext context =
         new ClassPathXmlApplicationContext("beanXMLTransaction.xml");
+    UserService service = context.getBean("userService", UserService.class);
+    service.accountMoney();
+  }
+
+  @Test
+  public void testTransacionWithoutXMLFile() {
+    ApplicationContext context =
+        new AnnotationConfigApplicationContext(TxConfig.class);
     UserService service = context.getBean("userService", UserService.class);
     service.accountMoney();
   }
