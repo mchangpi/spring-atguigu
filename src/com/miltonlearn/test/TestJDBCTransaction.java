@@ -55,4 +55,13 @@ public class TestJDBCTransaction {
     UserService service = context.getBean("userService", UserService.class);
     service.accountMoney();
   }
+
+  @Test
+  public void testXMLTransacion() {
+    //PlatformTransactionManager;
+    ApplicationContext context =
+        new ClassPathXmlApplicationContext("beanXMLTransaction.xml");
+    UserService service = context.getBean("userService", UserService.class);
+    service.accountMoney();
+  }
 }
