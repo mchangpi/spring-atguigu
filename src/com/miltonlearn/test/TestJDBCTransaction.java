@@ -7,11 +7,17 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.lang.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestJDBCTransaction {
+
+  @Nullable
+  private String transactionName;
+
   @Test
   public void testCRUD() {
     ApplicationContext context =
@@ -72,5 +78,14 @@ public class TestJDBCTransaction {
         new AnnotationConfigApplicationContext(TxConfig.class);
     UserService service = context.getBean("userService", UserService.class);
     service.accountMoney();
+  }
+
+  @Test
+  public void testGenericApplicationContext() {
+    GenericApplicationContext ctx = new GenericApplicationContext();
+    ctx.refresh();
+    ctx.registerBean("userLog", UserLog.class, () -> new UserLog());
+    UserLog log = (UserLog) ctx.getBean("userLog");
+    System.out.println(log);
   }
 }
