@@ -2,7 +2,7 @@ package com.miltonlearn.test;
 
 import com.miltonlearn.jdbc.BookService;
 import com.miltonlearn.transaction.UserService;
-import com.miltonlearn.transaction.config.TxConfig;
+import com.miltonlearn.config.TxConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
