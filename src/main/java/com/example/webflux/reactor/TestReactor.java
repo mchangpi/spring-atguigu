@@ -1,4 +1,4 @@
-package com.example.reactor8.reactor;
+package com.example.webflux.reactor;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

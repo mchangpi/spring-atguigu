@@ -1,10 +1,10 @@
-package com.example.reactor8;
+package com.example.webflux;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Reactor8ApplicationTests {
+class WebfluxApplicationTests {
 
 	@Test
 	void contextLoads() {
