@@ -1,4 +1,4 @@
-package com.example.reactor8.observer;
+package com.example.reactor8.reactor;
 
 import java.util.Observable;
 
